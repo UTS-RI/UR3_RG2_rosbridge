@@ -4,6 +4,8 @@ Capture colour images, depth and 3D points from an **Intel RealSense D435i** wit
 Python. Start with an example, then use the functions in `src/realsense_lab/`
 for a project. Camera features are checked when requested.
 
+For UR3 robot control, follow [Returning to the robot project](#returning-to-the-robot-project).
+
 ## 1. Set up
 
 Use **Python 3.12**. Run these commands from the project folder.
@@ -226,3 +228,18 @@ python -m pytest -q
 IMU support remains experimental until live capture is verified. Interactive
 windows also need checking on the lab computer.
 The examples do not update firmware or change factory calibration.
+
+## Returning to the robot project
+
+The `main` branch contains the UR3 simulation, robot control examples and lab setup instructions.
+Close any running camera examples and commit or stash local changes before switching.
+Run the following command from the project folder.
+
+```text
+git switch main
+```
+
+Switching branches changes the project files and README. It does not change the active Python environment.
+If the camera virtual environment is active, run `deactivate` in the same terminal.
+Then open the [robot README](https://github.com/UTS-RI/UR3_RG2_rosbridge/tree/main#readme)
+and follow its instructions to activate the existing `ur3` environment or create one.
