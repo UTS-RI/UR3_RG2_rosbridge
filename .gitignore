@@ -1,4 +1,5 @@
 .venv/
+ur3/
 __pycache__/
 *.py[cod]
 *.egg-info/
