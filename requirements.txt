@@ -1,0 +1,2 @@
+# Install the local package with RealSense camera support.
+-e .[camera]
