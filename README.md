@@ -7,13 +7,15 @@
 3. Follow [Hardware setup](#hardware-setup) in the Mechatronics Lab. Borrow the device, connect it and prepare the arm.
 4. Continue to the [robot examples](#robot-examples). Read the robot state with [Example 09](examples/09_real_ur_read_only.py). Test wrist movement with [Example 12](examples/12_real_speedj_minimal_test.py).
 
+For RealSense camera work, follow [Working with RealSense](#working-with-realsense).
+
 The software setup is only needed once. For later sessions, use [Returning to the lab](#returning-to-the-lab).
 
 ## Software setup
 
 The current lab setup uses Ubuntu and Python 3.12. The instructions below also cover Windows and macOS, although these have not been tested with this project. The Python libraries and robot workflow are shared across all three systems.
 
-Open a terminal in the project folder containing this README. On Windows, use Command Prompt (`cmd`) for the commands below. Keep this terminal open for installation and testing.
+Open a terminal. On Windows, use Command Prompt (`cmd`) for the commands below. Install the system tools first, then download the project.
 
 ### Install the system tools
 
@@ -53,6 +55,17 @@ Open a new terminal after installation and check both tools.
 python3.12 --version
 git --version
 ```
+
+### Download the project
+
+After installing the tools, open a terminal in the folder where the project should be stored. If the project is already cloned, open its existing folder and continue to [Understand the Python environment](#understand-the-python-environment).
+
+```text
+git clone https://github.com/UTS-RI/UR3_RG2_rosbridge.git
+cd UR3_RG2_rosbridge
+```
+
+The first command downloads the project and the Git information needed to switch branches. The second enters the project folder containing this README. Keep this terminal open and run the remaining commands from this folder.
 
 ### Understand the Python environment
 
@@ -286,6 +299,34 @@ Continue with [Hardware setup](#hardware-setup), then follow the [robot examples
 
 After finishing with the scripts, run `deactivate` to leave an active virtual environment. This only changes the terminal's Python environment.
 
+## Working with RealSense
+
+Use the `RealSense-Lab` branch for the Intel RealSense D435i. It contains a separate camera project with its own installation instructions. Switching branches changes the README and examples in the project folder.
+
+Run these commands from the project folder in a copy cloned with Git. Commit or stash any local changes first.
+
+```text
+git fetch origin
+git switch RealSense-Lab
+```
+
+The first command retrieves the latest branch information from GitHub. The second switches to the camera project. Open the [RealSense README](https://github.com/UTS-RI/UR3_RG2_rosbridge/tree/RealSense-Lab#readme) and follow its setup instructions before running the camera examples.
+
+The branch contains 15 examples and reusable functions in `src/realsense_lab/`.
+
+* Examples 01 and 04 show colour images and depth, including a live view.
+* Examples 02 and 03 display point clouds coloured by depth or image colour.
+* Examples 05, 12 and 13 save data, record camera streams and play recordings back.
+* Example 14 reads existing camera calibration data and measures a 3D distance. It does not calibrate the camera relative to the robot.
+
+Several examples also provide a demo mode with artificial data for practice without a camera. The camera README lists the available modes and additional examples.
+
+To return to the robot project, run the following command.
+
+```text
+git switch main
+```
+
 ## Camera calibration note
 
-The original project notes suggest an ArUco marker on the end effector for camera calibration. This repository does not include camera calibration code or a calibration procedure.
+The original project notes suggest an ArUco marker on the end effector for camera calibration. The `main` branch does not include camera calibration code or a calibration procedure.
