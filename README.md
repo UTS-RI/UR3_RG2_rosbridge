@@ -112,6 +112,7 @@ Update pip so that it can recognise available package versions. Then install the
 ```text
 python -m pip install --upgrade pip
 python -m pip install numpy scipy mujoco roboticstoolbox-python ur_rtde robot_descriptions "xacrodoc[mujoco]"
+python -m pip install "git+https://github.com/RianPolMacCionaoith/onRobot.git@main#subdirectory=onRobot"
 ```
 
 Continue to the [installation check](#check-the-installation).
