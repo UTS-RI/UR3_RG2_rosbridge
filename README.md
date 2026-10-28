@@ -274,6 +274,16 @@ python examples/12_real_speedj_minimal_test.py
 python examples/13_test_real_backend_velocity.py
 ```
 
+### Control the RG2 gripper
+
+[Example 15](examples/15_real_gripper_control.py) opens an RTDE control session so the external-control program can write RG2 commands. It keeps that session active while you control the gripper, but does not send robot-arm motion commands.
+
+```text
+python examples/15_real_gripper_control.py --ip ROBOT_ADDRESS
+```
+
+Press `Z` to close to 10 mm, `X` to open to 80 mm, and `Esc` to exit. Each command uses 20 N of gripping force.
+
 ### Make movement easier to see
 
 If movement is hard to see, first confirm the robot IP and observe the commanded joint. A small increase in `TEST_DURATION` makes the movement larger at the same speed. Check clearance and cable slack before increasing the duration.
